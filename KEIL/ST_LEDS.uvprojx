@@ -400,9 +400,9 @@
           <GroupName>StartUp</GroupName>
           <Files>
             <File>
-              <FileName>startup_stm32f10x_md.s</FileName>
+              <FileName>startup_stm32f10x_ld.s</FileName>
               <FileType>2</FileType>
-              <FilePath>.\CMSIS\StartUp\startup_stm32f10x_md.s</FilePath>
+              <FilePath>.\CMSIS\StartUp\startup_stm32f10x_ld.s</FilePath>
             </File>
           </Files>
         </Group>
