@@ -10,7 +10,7 @@
 
 
 /* Define --------------------------------------------------------------------*/
-#define LEDS                  0x09
+#define LEDS                  3
 
 struct settingsInitTypeDef{
   uint8_t brightnessW[LEDS];
