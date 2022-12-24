@@ -8,16 +8,11 @@
 #include "lighting.h"
 
 
-
 /* Define --------------------------------------------------------------------*/
-#define LEDS                  3
+#define LEDS_CH1                  120
+#define LEDS_CH2                  120
+#define LEDS_CH3                  120
 
-struct settingsInitTypeDef{
-  uint8_t brightnessW[LEDS];
-  uint8_t effect;
-  
-};
-extern struct settingsInitTypeDef settings;
 
 uint32_t GetTick(void);
 void DelayMs(uint32_t ms);

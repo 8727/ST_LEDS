@@ -6,28 +6,83 @@ int main(void){
   
   while(0x01){
     
-    DelayMs(1000);
-    ws2811W[0] = 255;
-    Ws2811WUpdate();
+    DelayMs(100);
+    WS2811_CH1[1] = 255;
+    LEDS_Update();
     
-    DelayMs(1000);
-    ws2811W[0] = 0;
-    Ws2811WUpdate();
+    DelayMs(100);
+    WS2811_CH2[1] = 255;
+    LEDS_Update();
     
-    DelayMs(1000);
-    ws2811W[1] = 255;
-    Ws2811WUpdate();
+    DelayMs(100);
+    WS2811_CH3[1] = 255;
+    LEDS_Update();
     
-    DelayMs(1000);
-    ws2811W[1] = 0;
-    Ws2811WUpdate();
+    DelayMs(100);
+    WS2811_CH1[1] = 0;
+    LEDS_Update();
     
-    DelayMs(1000);
-    ws2811W[2] = 255;
-    Ws2811WUpdate();
+    DelayMs(100);
+    WS2811_CH2[1] = 0;
+    LEDS_Update();
     
-    DelayMs(1000);
-    ws2811W[2] = 0;
-    Ws2811WUpdate();
+    DelayMs(100);
+    WS2811_CH3[1] = 0;
+    LEDS_Update();
+    
+    
+    
+    
+    
+    DelayMs(100);
+    WS2811_CH1[4] = 255;
+    LEDS_Update();
+    
+    DelayMs(100);
+    WS2811_CH2[4] = 255;
+    LEDS_Update();
+    
+    DelayMs(100);
+    WS2811_CH3[4] = 255;
+    LEDS_Update();
+    
+    DelayMs(100);
+    WS2811_CH1[4] = 0;
+    LEDS_Update();
+    
+    DelayMs(100);
+    WS2811_CH2[4] = 0;
+    LEDS_Update();
+    
+    DelayMs(100);
+    WS2811_CH3[4] = 0;
+    LEDS_Update();
+    
+    
+    
+    
+    DelayMs(100);
+    WS2811_CH1[7] = 255;
+    LEDS_Update();
+    
+    DelayMs(100);
+    WS2811_CH2[7] = 255;
+    LEDS_Update();
+    
+    DelayMs(100);
+    WS2811_CH3[7] = 255;
+    LEDS_Update();
+    
+    DelayMs(100);
+    WS2811_CH1[7] = 0;
+    LEDS_Update();
+    
+    DelayMs(100);
+    WS2811_CH2[7] = 0;
+    LEDS_Update();
+    
+    DelayMs(100);
+    WS2811_CH3[7] = 0;
+    LEDS_Update();
   }
 }

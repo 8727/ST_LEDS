@@ -6,13 +6,17 @@
 #include "setting.h"
 
 /* Define --------------------------------------------------------------------*/
-#define LED_LOW          0x20
-#define LED_HIGHT        0x40
+#define LED_FR           0x5A
+#define LED_LOW          LED_FR / 3
+#define LED_HIGHT        LED_LOW * 2
 
-extern uint8_t ws2811W[];
+#define LED_RESET        0x1A
 
-void Ws2811WUpdate(void);
-void Ws2811BRGUpdate(void);
-void Ws2811Init(void);
+extern uint8_t WS2811_CH1[];
+extern uint8_t WS2811_CH2[];
+extern uint8_t WS2811_CH3[];
+
+void LEDS_Update(void);
+void WS2811Init(void);
 
 #endif /* _WS2811_H */
