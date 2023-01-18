@@ -9,15 +9,13 @@
 
 
 /* Define --------------------------------------------------------------------*/
-#define LEDS_CH1                  256
-#define LEDS_CH2                  256
-#define LEDS_CH3                  256
+#define LEDS_CH1                  128
+#define LEDS_CH2                  128
+#define LEDS_CH3                  128
 
 
 uint32_t GetTick(void);
 void DelayMs(uint32_t ms);
-
-void Start(void);
 void Setting(void);
 
 #endif /* _SETTING_H */
