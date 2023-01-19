@@ -9,9 +9,10 @@
 
 
 /* Define --------------------------------------------------------------------*/
-#define LEDS_CH1                  32
-#define LEDS_CH2                  32
-#define LEDS_CH3                  32
+
+#define LEDS_CH1                          32
+#define LEDS_CH2                          32
+#define LEDS_CH3                          32
 
 
 uint32_t GetTick(void);
