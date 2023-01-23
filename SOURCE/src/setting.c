@@ -4,7 +4,16 @@ static __IO uint32_t msTicks;
 
 void SysTick_Handler(void){
   msTicks++;
-  AnimationPWM();
+  TimerAnimation.Sec++;
+  if(TimerAnimation.Sec > 999){
+    TimerAnimation.Sec = 0;
+    AnimationTimer();
+  }
+  TimerAnimation.Pwm++;
+  if(TimerAnimation.Pwm > 9){
+    TimerAnimation.Pwm = 0;
+    AnimationPWM();
+  }
 }
 
 uint32_t GetTick(void){

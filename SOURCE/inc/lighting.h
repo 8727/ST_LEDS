@@ -11,11 +11,16 @@
 /* Define --------------------------------------------------------------------*/
 #define ANIMATIONS                         0x08              // количество анимаций
 
+struct TimerAnimationInitTypeDef{
+  uint16_t Sec;
+  uint16_t Pwm;
+};
 
 struct AnimationInitTypeDef{
   uint16_t Start;
 
 };
+
 
 struct SettingsAnimationInitTypeDef{
   uint8_t Channel;
@@ -32,10 +37,12 @@ struct SettingsAnimationInitTypeDef{
   uint8_t Comet_Speed_Max;
 };
 
+extern struct TimerAnimationInitTypeDef TimerAnimation;
 extern struct AnimationInitTypeDef Animation[ANIMATIONS];
 extern struct SettingsAnimationInitTypeDef SettingsAnimation[ANIMATIONS];
 
 
 void AnimationPWM(void);
+void AnimationTimer(void);
 
 #endif /* _LIGHTING_H */
