@@ -3,6 +3,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f10x.h"
+#include <stdlib.h>
 #include "setting.h"
 #include "ws2811.h"
 
@@ -33,5 +34,8 @@ struct SettingsAnimationInitTypeDef{
 
 extern struct AnimationInitTypeDef Animation[ANIMATIONS];
 extern struct SettingsAnimationInitTypeDef SettingsAnimation[ANIMATIONS];
+
+
+void AnimationPWM(void);
 
 #endif /* _LIGHTING_H */

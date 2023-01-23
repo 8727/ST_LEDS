@@ -4,6 +4,7 @@ static __IO uint32_t msTicks;
 
 void SysTick_Handler(void){
   msTicks++;
+  AnimationPWM();
 }
 
 uint32_t GetTick(void){
