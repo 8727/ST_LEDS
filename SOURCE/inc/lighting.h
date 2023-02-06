@@ -9,16 +9,25 @@
 
 
 /* Define --------------------------------------------------------------------*/
-#define ANIMATIONS                         0x08              // количество анимаций
+#define ANIMATIONS                         0x10              // количество анимаций
 
 struct TimerAnimationInitTypeDef{
   uint16_t Sec;
   uint16_t Pwm;
 };
 
-struct AnimationInitTypeDef{
-  uint16_t Start;
-
+struct JobAnimationInitTypeDef{
+	uint8_t Channel;
+	uint16_t Start;
+	uint8_t Status;
+	uint8_t Status_Led[LEDS];
+	uint8_t Number_Led;
+  uint8_t Min_Brightness;
+  uint8_t Max_Brightness;
+  uint8_t Speed_up_Brightness;
+  uint8_t Speed_dw_Brightness;
+	uint8_t Speed_comet;
+	uint8_t Direction;
 };
 
 
@@ -31,14 +40,12 @@ struct SettingsAnimationInitTypeDef{
   uint8_t Stop_Led;
   uint8_t Min_Brightness;
   uint8_t Max_Brightness;
-  uint8_t Speed_up_Brightness;
-  uint8_t Speed_dw_Brightness;
-  uint8_t Comet_Speed_Min;
-  uint8_t Comet_Speed_Max;
+  uint8_t Speed_Min;
+  uint8_t Speed_Max;
 };
 
 extern struct TimerAnimationInitTypeDef TimerAnimation;
-extern struct AnimationInitTypeDef Animation[ANIMATIONS];
+extern struct JobAnimationInitTypeDef JobAnimation[ANIMATIONS];
 extern struct SettingsAnimationInitTypeDef SettingsAnimation[ANIMATIONS];
 
 

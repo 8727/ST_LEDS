@@ -6,6 +6,9 @@
 #include "setting.h"
 
 /* Define --------------------------------------------------------------------*/
+#define LEDS_CH1                          LEDS
+#define LEDS_CH2                          LEDS
+#define LEDS_CH3                          LEDS
 
 #define WS2811_LED_FR           0x5A
 #define WS2811_LED_LOW          WS2811_LED_FR / 3
