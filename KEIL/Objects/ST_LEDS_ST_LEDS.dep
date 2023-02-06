@@ -1,50 +1,0 @@
-Dependencies for Project 'ST_LEDS', Target 'ST_LEDS': (DO NOT MODIFY !)
-CompilerVersion: 5060750::V5.06 update 6 (build 750)::.\ARMCC
-F (.\CMSIS\src\core_cm3.c)(0x63AC52F5)(--c99 -c --cpu Cortex-M3 -g -O2 --apcs=interwork --split_sections -I Z:\ST_LEDS -I .\CMSIS\inc -I ..\SOURCE\inc-I"C:\Users\Alex Li\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-D__UVISION_VERSION="537" -DSTM32F10X_LD-o .\objects\core_cm3.o --omf_browse .\objects\core_cm3.crf --depend .\objects\core_cm3.d)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7BC4C)
-F (.\CMSIS\src\system_stm32f10x.c)(0x63AC52F5)(--c99 -c --cpu Cortex-M3 -g -O2 --apcs=interwork --split_sections -I Z:\ST_LEDS -I .\CMSIS\inc -I ..\SOURCE\inc-I"C:\Users\Alex Li\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-D__UVISION_VERSION="537" -DSTM32F10X_LD-o .\objects\system_stm32f10x.o --omf_browse .\objects\system_stm32f10x.crf --depend .\objects\system_stm32f10x.d)
-I (.\CMSIS\inc\stm32f10x.h)(0x63CFAB89)
-I (.\CMSIS\inc\core_cm3.h)(0x63AC52F5)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7BC4C)
-I (.\CMSIS\inc\system_stm32f10x.h)(0x63AC52F5)
-F (.\CMSIS\StartUp\startup_stm32f10x_ld.s)(0x63AC52F5)(--cpu Cortex-M3 -g --apcs=interwork -I"C:\Users\Alex Li\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"--pd "__UVISION_VERSION SETA 537" --pd "STM32F10X_LD SETA 1"--list .\listings\startup_stm32f10x_ld.lst --xref -o .\objects\startup_stm32f10x_ld.o --depend .\objects\startup_stm32f10x_ld.d)
-F (..\SOURCE\src\main.c)(0x63CF9DA8)(--c99 -c --cpu Cortex-M3 -g -O2 --apcs=interwork --split_sections -I Z:\ST_LEDS -I .\CMSIS\inc -I ..\SOURCE\inc-I"C:\Users\Alex Li\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-D__UVISION_VERSION="537" -DSTM32F10X_LD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (..\SOURCE\inc\main.h)(0x63CF9DA8)
-I (.\CMSIS\inc\stm32f10x.h)(0x63CFAB89)
-I (.\CMSIS\inc\core_cm3.h)(0x63AC52F5)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7BC4C)
-I (.\CMSIS\inc\system_stm32f10x.h)(0x63AC52F5)
-I (..\SOURCE\inc\setting.h)(0x63CF9DA8)
-I (..\SOURCE\inc\ws2811.h)(0x63CF9DA8)
-I (..\SOURCE\inc\lighting.h)(0x63E0F780)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5EC7BC4C)
-F (..\SOURCE\src\setting.c)(0x63CF9DA8)(--c99 -c --cpu Cortex-M3 -g -O2 --apcs=interwork --split_sections -I Z:\ST_LEDS -I .\CMSIS\inc -I ..\SOURCE\inc-I"C:\Users\Alex Li\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-D__UVISION_VERSION="537" -DSTM32F10X_LD-o .\objects\setting.o --omf_browse .\objects\setting.crf --depend .\objects\setting.d)
-I (..\SOURCE\inc\setting.h)(0x63CF9DA8)
-I (.\CMSIS\inc\stm32f10x.h)(0x63CFAB89)
-I (.\CMSIS\inc\core_cm3.h)(0x63AC52F5)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7BC4C)
-I (.\CMSIS\inc\system_stm32f10x.h)(0x63AC52F5)
-I (..\SOURCE\inc\main.h)(0x63CF9DA8)
-I (..\SOURCE\inc\ws2811.h)(0x63CF9DA8)
-I (..\SOURCE\inc\lighting.h)(0x63E0F780)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5EC7BC4C)
-F (..\SOURCE\src\ws2811.c)(0x63CF9DA8)(--c99 -c --cpu Cortex-M3 -g -O2 --apcs=interwork --split_sections -I Z:\ST_LEDS -I .\CMSIS\inc -I ..\SOURCE\inc-I"C:\Users\Alex Li\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-D__UVISION_VERSION="537" -DSTM32F10X_LD-o .\objects\ws2811.o --omf_browse .\objects\ws2811.crf --depend .\objects\ws2811.d)
-I (..\SOURCE\inc\ws2811.h)(0x63CF9DA8)
-I (.\CMSIS\inc\stm32f10x.h)(0x63CFAB89)
-I (.\CMSIS\inc\core_cm3.h)(0x63AC52F5)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7BC4C)
-I (.\CMSIS\inc\system_stm32f10x.h)(0x63AC52F5)
-I (..\SOURCE\inc\setting.h)(0x63CF9DA8)
-I (..\SOURCE\inc\main.h)(0x63CF9DA8)
-I (..\SOURCE\inc\lighting.h)(0x63E0F780)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5EC7BC4C)
-F (..\SOURCE\src\lighting.c)(0x63E0F780)(--c99 -c --cpu Cortex-M3 -g -O2 --apcs=interwork --split_sections -I Z:\ST_LEDS -I .\CMSIS\inc -I ..\SOURCE\inc-I"C:\Users\Alex Li\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include"-D__UVISION_VERSION="537" -DSTM32F10X_LD-o .\objects\lighting.o --omf_browse .\objects\lighting.crf --depend .\objects\lighting.d)
-I (..\SOURCE\inc\lighting.h)(0x63E0F780)
-I (.\CMSIS\inc\stm32f10x.h)(0x63CFAB89)
-I (.\CMSIS\inc\core_cm3.h)(0x63AC52F5)
-I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5EC7BC4C)
-I (.\CMSIS\inc\system_stm32f10x.h)(0x63AC52F5)
-I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5EC7BC4C)
-I (..\SOURCE\inc\setting.h)(0x63CF9DA8)
-I (..\SOURCE\inc\main.h)(0x63CF9DA8)
-I (..\SOURCE\inc\ws2811.h)(0x63CF9DA8)
