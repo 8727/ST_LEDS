@@ -4,15 +4,15 @@ static __IO uint32_t msTicks;
 
 void SysTick_Handler(void){
   msTicks++;
-  TimerAnimation.Sec++;
-  if(TimerAnimation.Sec > 999){
-    TimerAnimation.Sec = 0;
-    AnimationTimer();
+  Settings.Timer_Sec++;
+  if(Settings.Timer_Sec > 999){
+    Settings.Timer_Sec = 0;
+    Timer_Start_Animation();
   }
-  TimerAnimation.Pwm++;
-  if(TimerAnimation.Pwm > 9){
-    TimerAnimation.Pwm = 0;
-    AnimationPWM();
+  Settings.Timer_Tick++;
+  if(Settings.Timer_Tick > 9){
+    Settings.Timer_Tick = 0;
+    Tick_Animation();
   }
 }
 
