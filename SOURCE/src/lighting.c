@@ -7,7 +7,7 @@ struct SettingsAnimationInitTypeDef SettingsAnimation[ANIMATIONS];
 uint16_t Function_RAND(uint8_t min, uint8_t max){
   return min + rand() % ((max + 1) - min);
   }
-
+  
 void Tick_Animation(void){
   for(uint8_t a = 0; a < ANIMATIONS; a++){
     if(SettingsAnimation[a].Channel == 0){
@@ -29,28 +29,106 @@ void Tick_Animation(void){
         
       // Комета
       }else{
-      
         if(JobAnimation[a].Direction == 1){
-          WS2811_CH1[SettingsAnimation[a].Star_Led + JobAnimation[a].Comet_Led] = JobAnimation[a].Max_Brightness;
-          
-          
-          
-          
-          
-            pwm.brightness[i+5] = MAX_BRIGHTHESS;
-            DelayMs(pwm.speed);
-            pwm.brightness[i+5] = MIN_BRIGHTHESS;
-          
+          if(JobAnimation[a].Comet_Tick == 0 && JobAnimation[a].Status_Comet == 1){ WS2811_CH1[SettingsAnimation[a].Star_Led + JobAnimation[a].Comet_Led] = JobAnimation[a].Max_Brightness; }
+          JobAnimation[a].Comet_Tick += JobAnimation[a].Speed_comet;
+          if(JobAnimation[a].Comet_Tick > 100){
+            WS2811_CH1[SettingsAnimation[a].Star_Led + JobAnimation[a].Comet_Led] = SettingsAnimation[a].Min_Brightness;
+            JobAnimation[a].Comet_Tick = 0;
+            JobAnimation[a].Comet_Led++;
+          }
+          if(JobAnimation[a].Comet_Led < JobAnimation[a].Comet_Leds) JobAnimation[a].Status_Comet = 0xFF; 
+        }else{
+          if(JobAnimation[a].Comet_Tick == 0 && JobAnimation[a].Status_Comet == 1){ WS2811_CH1[SettingsAnimation[a].Stop_Led - JobAnimation[a].Comet_Led] = JobAnimation[a].Max_Brightness; }
+          JobAnimation[a].Comet_Tick += JobAnimation[a].Speed_comet;
+          if(JobAnimation[a].Comet_Tick > 100){
+            WS2811_CH1[SettingsAnimation[a].Stop_Led - JobAnimation[a].Comet_Led] = SettingsAnimation[a].Min_Brightness;
+            JobAnimation[a].Comet_Tick = 0;
+            JobAnimation[a].Comet_Led++;
+          }
+          if(JobAnimation[a].Comet_Led < JobAnimation[a].Comet_Leds) JobAnimation[a].Status_Comet = 0xFF;
         }
       }
     }
     if(SettingsAnimation[a].Channel == 1){
-    
       
+      // Тип анимации
+      if(SettingsAnimation[a].Type_Animation == 0){
+        
+        // Звездное небо
+        for(uint8_t leds = 0; leds < LEDS; leds++){
+          if(JobAnimation[a].Status_Sky[leds] == 1 && (WS2811_CH2[leds] <= JobAnimation[a].Max_Brightness - JobAnimation[a].Speed_up_Brightness)) WS2811_CH2[leds] += JobAnimation[a].Speed_up_Brightness;
+          if(JobAnimation[a].Status_Sky[leds] == 2 && (WS2811_CH2[leds] >= SettingsAnimation[a].Min_Brightness + JobAnimation[a].Speed_dw_Brightness)) WS2811_CH2[leds] -= JobAnimation[a].Speed_dw_Brightness;
+          
+          if(JobAnimation[a].Status_Sky[leds] == 1 && (WS2811_CH2[leds] >= JobAnimation[a].Max_Brightness - JobAnimation[a].Speed_up_Brightness)) JobAnimation[a].Status_Sky[leds] = 2;
+          if(JobAnimation[a].Status_Sky[leds] == 2 && (WS2811_CH2[leds] <= SettingsAnimation[a].Min_Brightness + JobAnimation[a].Speed_dw_Brightness)){
+            JobAnimation[a].Status_Sky[leds] = 0;
+            WS2811_CH2[leds] = SettingsAnimation[a].Min_Brightness;
+          }
+        }
+        
+      // Комета
+      }else{
+        if(JobAnimation[a].Direction == 1){
+          if(JobAnimation[a].Comet_Tick == 0 && JobAnimation[a].Status_Comet == 1){ WS2811_CH2[SettingsAnimation[a].Star_Led + JobAnimation[a].Comet_Led] = JobAnimation[a].Max_Brightness; }
+          JobAnimation[a].Comet_Tick += JobAnimation[a].Speed_comet;
+          if(JobAnimation[a].Comet_Tick > 100){
+            WS2811_CH2[SettingsAnimation[a].Star_Led + JobAnimation[a].Comet_Led] = SettingsAnimation[a].Min_Brightness;
+            JobAnimation[a].Comet_Tick = 0;
+            JobAnimation[a].Comet_Led++;
+          }
+          if(JobAnimation[a].Comet_Led < JobAnimation[a].Comet_Leds) JobAnimation[a].Status_Comet = 0xFF; 
+        }else{
+          if(JobAnimation[a].Comet_Tick == 0 && JobAnimation[a].Status_Comet == 1){ WS2811_CH2[SettingsAnimation[a].Stop_Led - JobAnimation[a].Comet_Led] = JobAnimation[a].Max_Brightness; }
+          JobAnimation[a].Comet_Tick += JobAnimation[a].Speed_comet;
+          if(JobAnimation[a].Comet_Tick > 100){
+            WS2811_CH2[SettingsAnimation[a].Stop_Led - JobAnimation[a].Comet_Led] = SettingsAnimation[a].Min_Brightness;
+            JobAnimation[a].Comet_Tick = 0;
+            JobAnimation[a].Comet_Led++;
+          }
+          if(JobAnimation[a].Comet_Led < JobAnimation[a].Comet_Leds) JobAnimation[a].Status_Comet = 0xFF;
+        }
+      }
     }
     if(SettingsAnimation[a].Channel == 2){
-    
       
+      // Тип анимации
+      if(SettingsAnimation[a].Type_Animation == 0){
+        
+        // Звездное небо
+        for(uint8_t leds = 0; leds < LEDS; leds++){
+          if(JobAnimation[a].Status_Sky[leds] == 1 && (WS2811_CH3[leds] <= JobAnimation[a].Max_Brightness - JobAnimation[a].Speed_up_Brightness)) WS2811_CH3[leds] += JobAnimation[a].Speed_up_Brightness;
+          if(JobAnimation[a].Status_Sky[leds] == 2 && (WS2811_CH3[leds] >= SettingsAnimation[a].Min_Brightness + JobAnimation[a].Speed_dw_Brightness)) WS2811_CH3[leds] -= JobAnimation[a].Speed_dw_Brightness;
+          
+          if(JobAnimation[a].Status_Sky[leds] == 1 && (WS2811_CH3[leds] >= JobAnimation[a].Max_Brightness - JobAnimation[a].Speed_up_Brightness)) JobAnimation[a].Status_Sky[leds] = 2;
+          if(JobAnimation[a].Status_Sky[leds] == 2 && (WS2811_CH3[leds] <= SettingsAnimation[a].Min_Brightness + JobAnimation[a].Speed_dw_Brightness)){
+            JobAnimation[a].Status_Sky[leds] = 0;
+            WS2811_CH3[leds] = SettingsAnimation[a].Min_Brightness;
+          }
+        }
+        
+      // Комета
+      }else{
+        if(JobAnimation[a].Direction == 1){
+          if(JobAnimation[a].Comet_Tick == 0 && JobAnimation[a].Status_Comet == 1){ WS2811_CH3[SettingsAnimation[a].Star_Led + JobAnimation[a].Comet_Led] = JobAnimation[a].Max_Brightness; }
+          JobAnimation[a].Comet_Tick += JobAnimation[a].Speed_comet;
+          if(JobAnimation[a].Comet_Tick > 100){
+            WS2811_CH3[SettingsAnimation[a].Star_Led + JobAnimation[a].Comet_Led] = SettingsAnimation[a].Min_Brightness;
+            JobAnimation[a].Comet_Tick = 0;
+            JobAnimation[a].Comet_Led++;
+          }
+          if(JobAnimation[a].Comet_Led < JobAnimation[a].Comet_Leds) JobAnimation[a].Status_Comet = 0xFF; 
+        }else{
+          if(JobAnimation[a].Comet_Tick == 0 && JobAnimation[a].Status_Comet == 1){ WS2811_CH3[SettingsAnimation[a].Stop_Led - JobAnimation[a].Comet_Led] = JobAnimation[a].Max_Brightness; }
+          JobAnimation[a].Comet_Tick += JobAnimation[a].Speed_comet;
+          if(JobAnimation[a].Comet_Tick > 100){
+            WS2811_CH3[SettingsAnimation[a].Stop_Led - JobAnimation[a].Comet_Led] = SettingsAnimation[a].Min_Brightness;
+            JobAnimation[a].Comet_Tick = 0;
+            JobAnimation[a].Comet_Led++;
+          }
+          if(JobAnimation[a].Comet_Led < JobAnimation[a].Comet_Leds) JobAnimation[a].Status_Comet = 0xFF;
+        }
+      }
     }
   }
   WS2811Update();
@@ -116,7 +194,7 @@ void Timer_Start_Animation(void){
         // Генерируем скорость кометы
         JobAnimation[i].Speed_comet = Function_RAND(SettingsAnimation[i].Speed_Min, SettingsAnimation[i].Speed_Max);
         JobAnimation[i].Status_Comet = 1;
-        //JobAnimation[i].Status_Comet = JobAnimation[i].Status_Comet;
+        JobAnimation[i].Comet_Tick = 0;
       }
       
       // Проверяем завершение анимации 
