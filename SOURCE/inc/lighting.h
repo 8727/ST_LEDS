@@ -11,7 +11,7 @@
 /* Define --------------------------------------------------------------------*/
 #define LEDS                               33
 #define TICK_LEDS                          LEDS * 3
-#define ANIMATIONS                         0x10              // количество анимаций
+#define ANIMATIONS                         16              // количество анимаций
 
 struct SettingsInitTypeDef{
   uint16_t Timer_Sec;

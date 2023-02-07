@@ -1,0 +1,16 @@
+[settings]
+start_power_on: 1
+brightness_max_low: 60
+brightness_max_average: 125
+brightness_max_high: 250
+
+[animation]
+
+
+[animation]
+
+
+[animation]
+
+
+[animation]
