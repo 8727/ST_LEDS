@@ -5,12 +5,131 @@ brightness_max_average: 125
 brightness_max_high: 250
 
 [animation]
-
+channel: 0
+animation: SKY
+min_timer_start: 1
+max_timer_start: 255
+led_start: 0
+led_stop: 32
+min_brightness: 0
+speed_sky_up: 0
+speed_sky_dw: 255
+speed_comet_min: 0
+speed_comet_max: 255
 
 [animation]
-
+channel: 0
+animation: SKY
+min_timer_start: 1
+max_timer_start: 255
+led_start: 0
+led_stop: 32
+min_brightness: 0
+speed_sky_up: 0
+speed_sky_dw: 255
+speed_comet_min: 0
+speed_comet_max: 255
 
 [animation]
-
+channel: 0
+animation: SKY
+min_timer_start: 1
+max_timer_start: 255
+led_start: 0
+led_stop: 32
+min_brightness: 0
+speed_sky_up: 0
+speed_sky_dw: 255
+speed_comet_min: 0
+speed_comet_max: 255
 
 [animation]
+channel: 0
+animation: SKY
+min_timer_start: 1
+max_timer_start: 255
+led_start: 0
+led_stop: 32
+min_brightness: 0
+speed_sky_up: 0
+speed_sky_dw: 255
+speed_comet_min: 0
+speed_comet_max: 255
+
+[animation]
+channel: 0
+animation: SKY
+min_timer_start: 1
+max_timer_start: 255
+led_start: 0
+led_stop: 32
+min_brightness: 0
+speed_sky_up: 0
+speed_sky_dw: 255
+speed_comet_min: 0
+speed_comet_max: 255
+
+[animation]
+channel: 0
+animation: SKY
+min_timer_start: 1
+max_timer_start: 255
+led_start: 0
+led_stop: 32
+min_brightness: 0
+speed_sky_up: 0
+speed_sky_dw: 255
+speed_comet_min: 0
+speed_comet_max: 255
+
+[animation]
+channel: 0
+animation: SKY
+min_timer_start: 1
+max_timer_start: 255
+led_start: 0
+led_stop: 32
+min_brightness: 0
+speed_sky_up: 0
+speed_sky_dw: 255
+speed_comet_min: 0
+speed_comet_max: 255
+
+[animation]
+channel: 0
+animation: SKY
+min_timer_start: 1
+max_timer_start: 255
+led_start: 0
+led_stop: 32
+min_brightness: 0
+speed_sky_up: 0
+speed_sky_dw: 255
+speed_comet_min: 0
+speed_comet_max: 255
+
+[animation]
+channel: 0
+animation: SKY
+min_timer_start: 1
+max_timer_start: 255
+led_start: 0
+led_stop: 32
+min_brightness: 0
+speed_sky_up: 0
+speed_sky_dw: 255
+speed_comet_min: 0
+speed_comet_max: 255
+
+[animation]
+channel: 0
+animation: SKY
+min_timer_start: 1
+max_timer_start: 255
+led_start: 0
+led_stop: 32
+min_brightness: 0
+speed_sky_up: 0
+speed_sky_dw: 255
+speed_comet_min: 0
+speed_comet_max: 255
