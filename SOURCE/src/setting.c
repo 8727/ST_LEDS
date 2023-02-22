@@ -35,5 +35,4 @@ void Setting(void){
   
   
   WS2811Init();
-
 }

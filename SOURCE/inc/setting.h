@@ -9,8 +9,8 @@
 
 
 /* Define --------------------------------------------------------------------*/
-
-
+#define True													0x01
+#define False													0x00
 
 
 uint32_t GetTick(void);
