@@ -13,13 +13,6 @@
 #define TICK_LEDS                          LEDS * 3
 #define ANIMATIONS                         16              // количество анимаций
 
-struct SettingsInitTypeDef{
-  uint16_t Timer_Sec;
-  uint16_t Timer_Tick;
-  uint8_t Max_Brightness;
-  
-};
-
 struct JobAnimationInitTypeDef{
   uint16_t Timer_Start;
   uint8_t Status_Comet;
@@ -48,7 +41,6 @@ struct SettingsAnimationInitTypeDef{
   
 };
 
-extern struct SettingsInitTypeDef Settings;
 extern struct JobAnimationInitTypeDef JobAnimation[ANIMATIONS];
 extern struct SettingsAnimationInitTypeDef SettingsAnimation[ANIMATIONS];
 

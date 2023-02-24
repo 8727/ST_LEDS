@@ -7,6 +7,13 @@
 
 
 /* Define --------------------------------------------------------------------*/
+#define True                                0x01
+#define False                               0x00
+
+
+
+
+
 #define ANIMATION_1_CHANNEL               0                                       // Канал 0, 1, 2
 #define ANIMATION_1_ANIMATION             SKY                                     // SKY звездное небо, COMET комета
 #define ANIMATION_1_TIMER_MIN_START       0                                       // минимальное время перед запуском анимации 50 сек
