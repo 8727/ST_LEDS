@@ -1,6 +1,5 @@
 #include "lighting.h"
 
-struct SettingsInitTypeDef Settings;
 struct JobAnimationInitTypeDef JobAnimation[ANIMATIONS];
 struct SettingsAnimationInitTypeDef SettingsAnimation[ANIMATIONS];
 
