@@ -6,15 +6,19 @@
 #include "setting.h"
 
 /* Define --------------------------------------------------------------------*/
-#define BUTTON												(GPIOA->IDR & GPIO_IDR_IDR0)
+#define BUTTON                        (GPIOA->IDR & GPIO_IDR_IDR0)
+#define LONG_BUTTON                   3000
 
 struct ButtonInitTypeDef{
-  uint8_t Status_Button;
-	uint16_t Timer_Button;
+  uint8_t Flag_Button;
+  uint8_t Long_Button;
+  uint16_t Timer_Button;
 
   
 };
 
 extern struct ButtonInitTypeDef Button;
+
+void Standby(void);
 
 #endif /* _BUTTON_H */
