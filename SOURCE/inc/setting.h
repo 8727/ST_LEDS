@@ -16,6 +16,8 @@
 #define TIMER_ON                   10
 
 struct SettingsInitTypeDef{
+  uint8_t Start_Power;
+  
   uint8_t Flag_Power;
   uint8_t Timer_Power;
   uint8_t Number_Brightness;

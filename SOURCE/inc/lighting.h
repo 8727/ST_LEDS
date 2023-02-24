@@ -29,6 +29,7 @@ struct JobAnimationInitTypeDef{
 };
 
 struct SettingsAnimationInitTypeDef{
+  uint8_t Enable;
   uint8_t Channel;
   uint8_t Type_Animation;
   uint8_t Min_Start;
