@@ -15,6 +15,6 @@ struct settingAnimationInitTypeDef{
 
 extern struct settingAnimationInitTypeDef settingAnimation;
 
-
+void Setings_Animation(void);
 void Setings_Animations(void);
 #endif /* _SETTING_ANIMATION_H */

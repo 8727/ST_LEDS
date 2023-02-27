@@ -45,5 +45,6 @@ void Setting(void){
   
   WS2811Init();
   
+  Setings_Animation();
   Setings_Animations();
 }
