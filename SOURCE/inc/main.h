@@ -10,8 +10,8 @@
 #define True                                0x01
 #define False                               0x00
 
-#define SKY                                 0x01
-#define COMET                               0x00
+#define SKY                                 0x00
+#define COMET                               0x01
 
 
 #endif /* __MAIN_H */

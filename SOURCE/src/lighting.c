@@ -8,6 +8,7 @@ uint16_t Function_RAND(uint8_t min, uint8_t max){
 }
   
 void Tick_Animation(void){
+	Settings.Flag_Timer_Tick = False;
   for(uint8_t a = 0; a < ANIMATIONS; a++){
     if(SettingsAnimation[a].Enable == True){
       if(SettingsAnimation[a].Channel == 0){
@@ -17,8 +18,8 @@ void Tick_Animation(void){
           
           // Звездное небо
           for(uint8_t leds = 0; leds < LEDS; leds++){
-            if(JobAnimation[a].Status_Sky[leds] == 1 && (WS2811_CH1[leds] <= JobAnimation[a].Max_Brightness - JobAnimation[a].Speed_up_Brightness)) WS2811_CH1[leds] += JobAnimation[a].Speed_up_Brightness;
-            if(JobAnimation[a].Status_Sky[leds] == 2 && (WS2811_CH1[leds] >= SettingsAnimation[a].Min_Brightness + JobAnimation[a].Speed_dw_Brightness)) WS2811_CH1[leds] -= JobAnimation[a].Speed_dw_Brightness;
+            if(JobAnimation[a].Status_Sky[leds] == 1 && (WS2811_CH1[leds] <= JobAnimation[a].Max_Brightness - JobAnimation[a].Speed_up_Brightness)) WS2811_CH1[leds] += (JobAnimation[a].Speed_up_Brightness +1);
+            if(JobAnimation[a].Status_Sky[leds] == 2 && (WS2811_CH1[leds] >= SettingsAnimation[a].Min_Brightness + JobAnimation[a].Speed_dw_Brightness)) WS2811_CH1[leds] -= (JobAnimation[a].Speed_dw_Brightness +1);
             
             if(JobAnimation[a].Status_Sky[leds] == 1 && (WS2811_CH1[leds] >= JobAnimation[a].Max_Brightness - JobAnimation[a].Speed_up_Brightness)) JobAnimation[a].Status_Sky[leds] = 2;
             if(JobAnimation[a].Status_Sky[leds] == 2 && (WS2811_CH1[leds] <= SettingsAnimation[a].Min_Brightness + JobAnimation[a].Speed_dw_Brightness)){
@@ -136,6 +137,7 @@ void Tick_Animation(void){
 }
 
 void Timer_Start_Animation(void){
+	Settings.Flag_Timer_Sec = False;
   uint8_t led;
   uint8_t status;
   uint8_t jomp;
@@ -154,19 +156,19 @@ void Timer_Start_Animation(void){
         
           // Генерируем смучайную не светящюю звезду из диапазона
           tick = (TICK_LEDS);
-          jomp = 0;
+          jomp = 1;
           do{
             led = Function_RAND(SettingsAnimation[i].Star_Led, SettingsAnimation[i].Stop_Led);
             status = JobAnimation[i].Status_Sky[led];
             
             // Выход по количеству попыток
-            if(tick == 0){ status = 0; jomp = 1; }
+            if(tick == 0){ status = 0; jomp = 0; }
             tick--;
           }while(status);
           
           if(jomp == 1){
             // Включаем светодиод
-            JobAnimation[i].Status_Sky[led] = 1;
+            JobAnimation[i].Status_Sky[led] = True;
             
             // Генерируем максимальную яркость
             JobAnimation[i].Max_Brightness = Function_RAND(SettingsAnimation[i].Min_Brightness, Settings.Max_Brightness);

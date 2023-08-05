@@ -17,7 +17,7 @@ void Setings_Animation(void){
   SettingsAnimation[animation].Min_Start = 1;                 // минимальное время перед запуском анимации от 0 до 255 сек
   SettingsAnimation[animation].Max_Start = 10;                // максимальное время перед запуском анимации от 0 до 255 сек
   SettingsAnimation[animation].Star_Led = 0;                  // номер светодиода с которого начнеться анимация
-  SettingsAnimation[animation].Stop_Led = 3;                  // номер светодиода на котором начнеться анимация
+	SettingsAnimation[animation].Stop_Led = 3;                  // номер светодиода на котором закончиться анимация
   SettingsAnimation[animation].Min_Brightness = 0;            // Минимальная яркость
   SettingsAnimation[animation].Speed_Min = 0;                 // Минимальная скорось загорания при SKY, Минимальная скорось полета при COMET
   SettingsAnimation[animation].Speed_Max = 10;                // Максимальная скорось загорания при SKY, Минимальная скорось полета при COMET
@@ -30,27 +30,27 @@ void Setings_Animations(void){
   animation = 0;
   SettingsAnimation[animation].Enable = True;
   SettingsAnimation[animation].Channel = 0;
-  SettingsAnimation[animation].Type_Animation = SKY;
-  SettingsAnimation[animation].Min_Start = 1;
-  SettingsAnimation[animation].Max_Start = 10;
-  SettingsAnimation[animation].Star_Led = 0;
-  SettingsAnimation[animation].Stop_Led = 3;
-  SettingsAnimation[animation].Min_Brightness = 0;
-  SettingsAnimation[animation].Speed_Min = 0;
-  SettingsAnimation[animation].Speed_Max = 10;
-  JobAnimation[animation].Timer_Start = Settings.Start_Power;
-  
-  animation = 1;
-  SettingsAnimation[animation].Enable = True;
-  SettingsAnimation[animation].Channel = 0;
   SettingsAnimation[animation].Type_Animation = COMET;
   SettingsAnimation[animation].Min_Start = 1;
   SettingsAnimation[animation].Max_Start = 10;
   SettingsAnimation[animation].Star_Led = 0;
-  SettingsAnimation[animation].Stop_Led = 3;
+  SettingsAnimation[animation].Stop_Led = 2;
   SettingsAnimation[animation].Min_Brightness = 0;
-  SettingsAnimation[animation].Speed_Min = 0;
-  SettingsAnimation[animation].Speed_Max = 10;
+  SettingsAnimation[animation].Speed_Min = 1;
+  SettingsAnimation[animation].Speed_Max = 5;
   JobAnimation[animation].Timer_Start = Settings.Start_Power;
+  
+//  animation = 1;
+//  SettingsAnimation[animation].Enable = True;
+//  SettingsAnimation[animation].Channel = 0;
+//  SettingsAnimation[animation].Type_Animation = COMET;
+//  SettingsAnimation[animation].Min_Start = 1;
+//  SettingsAnimation[animation].Max_Start = 10;
+//  SettingsAnimation[animation].Star_Led = 0;
+//  SettingsAnimation[animation].Stop_Led = 2;
+//  SettingsAnimation[animation].Min_Brightness = 0;
+//  SettingsAnimation[animation].Speed_Min = 0;
+//  SettingsAnimation[animation].Speed_Max = 10;
+//  JobAnimation[animation].Timer_Start = Settings.Start_Power;
   
 }

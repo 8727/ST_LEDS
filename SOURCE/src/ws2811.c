@@ -1,34 +1,26 @@
 #include "ws2811.h"
 
-uint8_t WS2811_CH1[LEDS_CH1];
-uint8_t WS2811_CH2[LEDS_CH2];
-uint8_t WS2811_CH3[LEDS_CH3];
+uint8_t WS2811_CH1[LEDS];
+uint8_t WS2811_CH2[LEDS];
+uint8_t WS2811_CH3[LEDS];
 
-uint8_t WS2811_DMA_CH1[WS2811_DMA_LEDS_CH1][0x08];
-uint8_t WS2811_DMA_CH2[WS2811_DMA_LEDS_CH2][0x08];
-uint8_t WS2811_DMA_CH3[WS2811_DMA_LEDS_CH3][0x08];
+uint8_t WS2811_DMA_CH1[WS2811_DMA_LEDS_CH][0x08];
+uint8_t WS2811_DMA_CH2[WS2811_DMA_LEDS_CH][0x08];
+uint8_t WS2811_DMA_CH3[WS2811_DMA_LEDS_CH][0x08];
 
 void WS2811Clear(void){
   uint8_t l, i;
-  for(l=0; l < WS2811_DMA_LEDS_CH1; l++){ for(i=0; i<8; i++){ WS2811_DMA_CH1[l][i] = WS2811_LED_LOW;} }
-  for(l=0; l < WS2811_DMA_LEDS_CH2; l++){ for(i=0; i<8; i++){ WS2811_DMA_CH1[l][i] = WS2811_LED_LOW;} }
-  for(l=0; l < WS2811_DMA_LEDS_CH3; l++){ for(i=0; i<8; i++){ WS2811_DMA_CH1[l][i] = WS2811_LED_LOW;} }
+  for(l=WS2811_RESET; l < WS2811_DMA_LEDS_CH; l++){ for(i=0; i<8; i++){ WS2811_DMA_CH1[l][i] = WS2811_LED_LOW;} }
+  for(l=WS2811_RESET; l < WS2811_DMA_LEDS_CH; l++){ for(i=0; i<8; i++){ WS2811_DMA_CH2[l][i] = WS2811_LED_LOW;} }
+  for(l=WS2811_RESET; l < WS2811_DMA_LEDS_CH; l++){ for(i=0; i<8; i++){ WS2811_DMA_CH3[l][i] = WS2811_LED_LOW;} }
 }
 
 void WS2811Update(void){
   uint8_t i, k;
-  for(i = 0x00; i < (LEDS_CH1); i++){
+  for(i = 0x00; i < (LEDS); i++){
     for(k = 0; k < 0x08; k++){
       WS2811_DMA_CH1[WS2811_RESET + i][k] = (WS2811_CH1[i] & (0x01 << (0x07 - k))) ? WS2811_LED_HIGHT : WS2811_LED_LOW;
-    }
-  }
-  for(i = 0x00; i < (LEDS_CH2); i++){
-    for(k = 0; k < 0x08; k++){
       WS2811_DMA_CH2[WS2811_RESET + i][k] = (WS2811_CH2[i] & (0x01 << (0x07 - k))) ? WS2811_LED_HIGHT : WS2811_LED_LOW;
-    }
-  }
-  for(i = 0x00; i < (LEDS_CH3); i++){
-    for(k = 0; k < 0x08; k++){
       WS2811_DMA_CH3[WS2811_RESET + i][k] = (WS2811_CH3[i] & (0x01 << (0x07 - k))) ? WS2811_LED_HIGHT : WS2811_LED_LOW;
     }
   }
@@ -46,17 +38,17 @@ void WS2811Init(void){
   
   DMA1_Channel6->CPAR = (uint32_t) (&TIM3->CCR1);
   DMA1_Channel6->CMAR = (uint32_t) (&WS2811_DMA_CH1);
-  DMA1_Channel6->CNDTR = WS2811_DMA_LEDS_CH1 * 0x08;
+  DMA1_Channel6->CNDTR = WS2811_DMA_LEDS_CH * 0x08;
   DMA1_Channel6->CCR |= DMA_CCR6_MINC | DMA_CCR6_DIR | DMA_CCR6_PSIZE_0 | DMA_CCR6_CIRC;
   
   DMA1_Channel2->CPAR = (uint32_t) (&TIM3->CCR3);
   DMA1_Channel2->CMAR = (uint32_t) (&WS2811_DMA_CH2);
-  DMA1_Channel2->CNDTR = WS2811_DMA_LEDS_CH2 * 0x08;
+  DMA1_Channel2->CNDTR = WS2811_DMA_LEDS_CH * 0x08;
   DMA1_Channel2->CCR |= DMA_CCR2_MINC | DMA_CCR2_DIR | DMA_CCR2_PSIZE_0 | DMA_CCR2_CIRC;
   
   DMA1_Channel3->CPAR = (uint32_t) (&TIM3->CCR4);
   DMA1_Channel3->CMAR = (uint32_t) (&WS2811_DMA_CH3);
-  DMA1_Channel3->CNDTR = WS2811_DMA_LEDS_CH3 * 0x08;
+  DMA1_Channel3->CNDTR = WS2811_DMA_LEDS_CH * 0x08;
   DMA1_Channel3->CCR |= DMA_CCR3_MINC | DMA_CCR3_DIR | DMA_CCR3_PSIZE_0 | DMA_CCR3_CIRC;
   
   TIM3->PSC = 0x00;
